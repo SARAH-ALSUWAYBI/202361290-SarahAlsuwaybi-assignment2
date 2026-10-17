@@ -14,12 +14,29 @@
   --text-muted: #9aa4b2;
   --accent: #9d7bf0;
   --accent-dark: #7c5cd6;
+    --on-accent: #14171c;   /* text color on accent buttons */
+  --error: #f87171;
+  --success: #4ade80;
 
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
 
   --max-width: 960px;
   --radius: 8px;
+}
+
+/* Light theme: set by JavaScript with <html data-theme="light"> */
+:root[data-theme="light"] {
+  --bg: #f7f7fb;
+  --surface: #ffffff;
+  --border: #e2e4ea;
+  --text: #1a1d23;
+  --text-muted: #5b6472;
+  --accent: #7c5cd6;
+  --accent-dark: #6445c2;
+  --on-accent: #ffffff;
+  --error: #dc2626;
+  --success: #16a34a;
 }
 
 /* =========================================================
@@ -35,6 +52,7 @@ body {
   color: var(--text);
   font-family: var(--font-body);
   line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3 {
@@ -113,6 +131,20 @@ nav {
 .nav-links a:hover,
 .nav-links a:focus-visible {
   color: var(--accent);
+}
+/* Theme toggle button */
+.theme-toggle {
+  align-self: center;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.7rem;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  background-color: var(--border);
 }
 
 /* =========================================================
@@ -219,13 +251,14 @@ button {
   align-self: flex-start;
   padding: 0.7rem 1.5rem;
   background-color: var(--accent);
-  color: #14171c;
+  color: var(--on-accent);
   border: none;
   border-radius: var(--radius);
   font-family: var(--font-body);
   font-weight: 500;
   font-size: 0.95rem;
   cursor: pointer;
+
 }
 
 button:hover,
