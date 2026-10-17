@@ -1,0 +1,286 @@
+/* =========================================================
+   Fonts
+   ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap');
+
+/* =========================================================
+   Tokens
+   ========================================================= */
+:root {
+  --bg: #14171c;
+  --surface: #1c2028;
+  --border: #2a2f38;
+  --text: #e8ecf1;
+  --text-muted: #9aa4b2;
+  --accent: #9d7bf0;
+  --accent-dark: #7c5cd6;
+
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --max-width: 960px;
+  --radius: 8px;
+}
+
+/* =========================================================
+   Reset & base
+   ========================================================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+  margin: 0 0 0.5em;
+}
+
+p {
+  margin: 0 0 1em;
+  color: var(--text-muted);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+section {
+  padding: 4rem 1.5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* =========================================================
+   Navigation
+   ========================================================= */
+header {
+  position: sticky;
+  top: 0;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+
+nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--accent);
+}
+
+/* =========================================================
+   About Me
+   ========================================================= */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+}
+
+.about-text h1 {
+  font-size: 2rem;
+}
+
+.tagline {
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 0.75em;
+}
+
+/* =========================================================
+   Projects
+   ========================================================= */
+#projects h2,
+#contact h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.project-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  padding: 1.25rem;
+}
+
+.project-card img {
+  border-radius: calc(var(--radius) - 2px);
+  margin-bottom: 1rem;
+}
+
+.project-card h3 {
+  font-size: 1.15rem;
+}
+
+/* =========================================================
+   Contact form
+   ========================================================= */
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 480px;
+}
+
+label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  align-self: flex-start;
+  padding: 0.7rem 1.5rem;
+  background-color: var(--accent);
+  color: #14171c;
+  border: none;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus-visible {
+  background-color: var(--accent-dark);
+}
+
+#form-status {
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+footer {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 1.5rem;
+}
+
+footer p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* =========================================================
+   Responsive breakpoints
+   ========================================================= */
+
+/* Tablet and up */
+@media (min-width: 600px) {
+  .about-content {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #contact-form {
+    max-width: 520px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  section {
+    padding: 5rem 2rem;
+  }
+
+  .about-text h1 {
+    font-size: 2.5rem;
+  }
+}
