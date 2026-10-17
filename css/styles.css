@@ -184,7 +184,11 @@ nav {
   font-size: 1.75rem;
   margin-bottom: 1.5rem;
 }
-
+/* Search box */
+.search-box {
+  margin-bottom: 1.5rem;
+  max-width: 420px;
+}
 .project-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -206,6 +210,13 @@ nav {
 
 .project-card h3 {
   font-size: 1.15rem;
+}
+/* Empty state message for search */
+.empty-state {
+  text-align: center;
+  padding: 2rem 1rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
 }
 
 /* =========================================================

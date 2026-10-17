@@ -44,6 +44,11 @@
           <!--  PROJECTS SECTION  -->
     <section id="projects">
       <h2>Projects</h2>
+      <!-- Live search: filters project cards while typing -->
+<div class="search-box">
+  <label for="project-search">Search projects</label>
+  <input type="search" id="project-search" placeholder="Try &quot;bus&quot;, &quot;Java&quot; or &quot;app&quot;...">
+</div>
       <div class="project-grid">
  
         <!-- Project 1: Bus Tracker -->
@@ -53,6 +58,7 @@
           <img src="assets/images/bus.png" alt="Bus Tracker features">
           <p>A prototype for a mobile app that helps students track campus buses in real time, with live maps, delay alerts, and route details.</p>
         </div>
+      
  
         <!-- Project 2: Clinic System -->
         <div class="project-card">
@@ -63,6 +69,7 @@
         </div>
   
       </div>
+            <p id="no-results" class="empty-state" hidden>No projects found. Try a different word.</p>
     </section>
 
         <!--  CONTACT SECTION  -->
