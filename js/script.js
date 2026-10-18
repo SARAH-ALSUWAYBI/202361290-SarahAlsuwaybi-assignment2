@@ -1,10 +1,12 @@
 // Smooth Scrolling for Navigation Links
-
+// Mark that JavaScript is running (used by CSS for the fade-in effect)
+document.documentElement.classList.add('js');
 document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
   setupThemeToggle();
   setupProjectSearch();
   setupContactForm();
+  setupFadeIn();
   navLinks.forEach((link) => {
     link.addEventListener('click', (event) => {
       const targetId = link.getAttribute('href'); // e.g. "#about"
@@ -160,8 +162,35 @@ function setupContactForm() {
     document.getElementById(`${key}-error`).textContent = '';
   }
 
-  function showStatus(text, type) {
+   function showStatus(text, type) {
+    status.className = '';    // reset so the animation can replay
+    void status.offsetWidth;  // forces the browser to restart the animation
     status.textContent = text;
     status.className = type;
   }
+}
+
+/* =========================================================
+   Fade-in sections when they scroll into view
+   ========================================================= */
+function setupFadeIn() {
+  const sections = document.querySelectorAll('.fade-in');
+
+  // Older browsers without IntersectionObserver: just show everything
+  if (!('IntersectionObserver' in window)) {
+    sections.forEach((section) => section.classList.add('visible'));
+    return;
+  }
+
+  // Watches sections and adds "visible" when they appear on screen
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // animate only once
+      }
+    });
+  }, { threshold: 0.15 });
+
+  sections.forEach((section) => observer.observe(section));
 }

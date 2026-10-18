@@ -201,6 +201,13 @@ nav {
   border-radius: var(--radius);
   overflow: hidden;
   padding: 1.25rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 .project-card img {
@@ -217,6 +224,7 @@ nav {
   padding: 2rem 1rem;
   border: 1px dashed var(--border);
   border-radius: var(--radius);
+    animation: fadeSlide 0.4s ease;
 }
 
 /* =========================================================
@@ -284,12 +292,14 @@ button {
   font-weight: 500;
   font-size: 0.95rem;
   cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 
 }
 
 button:hover,
 button:focus-visible {
   background-color: var(--accent-dark);
+    transform: translateY(-2px);
 }
 
 /* Form status message (success / error) */
@@ -300,10 +310,12 @@ button:focus-visible {
 
 #form-status.success {
   color: var(--success);
+    animation: fadeSlide 0.4s ease;
 }
 
 #form-status.fail {
   color: var(--error);
+    animation: fadeSlide 0.4s ease;
 }
 
 /* =========================================================
@@ -319,6 +331,51 @@ footer p {
   color: var(--text-muted);
   font-size: 0.85rem;
   margin: 0;
+}
+
+/* =========================================================
+   Animations
+   ========================================================= */
+
+/* Sections fade in on scroll.
+   Only hidden when JavaScript runs (html.js), so the page
+   still shows everything if JavaScript is off. */
+.js .fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.js .fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Used by messages that appear (status, empty state) */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .js .fade-in {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* =========================================================
