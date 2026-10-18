@@ -1,36 +1,39 @@
-# AI Usage Report
+AI Usage Report
 
-## Tools Used
-
-I used **Claude** to help me through this whole project.
-
+Tools Used
+I used Claude as a guide and supporter while working on this assignment.
 I used it to:
-- Break the assignment into smaller steps so it felt less overwhelming
-- Write and fix parts of my HTML, CSS, and JavaScript
-- Help me debug my profile photo when it wasn't showing up
-- Explain things I didn't understand in js 
 
-## Benefits & Challenges
+* Help me plan which features to add based on the requirements
+* Guide me step by step on where to add each part in my files
+* Review my Assignment 1 code and point out a small bug I missed
+* Help me when I got stuck setting up the new repository
+* Explain things I didn't understand, like localStorage and form validation
 
-**Benefits:**
-- Made a big assignment feel more manageable by splitting it into steps
-- Helped me fix mistakes fast, like the broken image issue
-- Explained things instead of just giving me code, so I actually understood it
+Benefits & Challenges
+Benefits:
 
-**Challenges:**
-- I had to double check the AI's suggestions instead of just copying everything as is
-- Connecting the css style and html 
-- finding the sutible frame for the web
+* Splitting the work into small parts made it easier to follow
+* I understood each feature before moving to the next one
+* It helped me notice mistakes I didn't see myself
 
-## Learning Outcomes
+Challenges:
 
-- Learned how image paths work and why they can break
-- Learned how to use browser DevTools to find errors
-- Learned basic Flexbox/Grid for responsive design
-- Learned how JavaScript event listeners work through the smooth scroll feature
+* Sometimes I put code in the wrong place and had to fix it
+* Setting up the new repo and copying files was confusing at first
+* I had to remember to commit after each part
 
-## Responsible Use
+Learning Outcomes
 
-- I wrote my own content, Claude only helped fix grammar and wording
-- I tested everything myself before adding it to my project
-- I understand how my code works, not just copy-pasted it
+* Learned how to save the user's theme choice using localStorage
+* Learned how to filter content while the user types
+* Learned how to check form inputs and show clear error messages
+* Learned how to add simple animations with CSS and JavaScript
+* Got better at using Git and making clear commits
+
+Responsible Use
+
+* I added each feature myself, step by step
+* I tested everything before committing it
+* I made sure I understand how my code works
+* I wrote my own content and only used AI for guidance and support
