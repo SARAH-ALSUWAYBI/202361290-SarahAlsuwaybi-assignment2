@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
   setupThemeToggle();
   setupProjectSearch();
+  setupContactForm();
   navLinks.forEach((link) => {
     link.addEventListener('click', (event) => {
       const targetId = link.getAttribute('href'); // e.g. "#about"
@@ -80,4 +81,87 @@ function setupProjectSearch() {
     // Show "No projects found" only when nothing matches
     noResults.hidden = visibleCount > 0;
   });
+}
+
+/* =========================================================
+   Contact form validation + confirmation message
+   ========================================================= */
+function setupContactForm() {
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  const fields = {
+    name: document.getElementById('name'),
+    email: document.getElementById('email'),
+    message: document.getElementById('message')
+  };
+
+  // Simple email pattern: something@something.something
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault(); // no backend, so stay on the page
+
+    const name = fields.name.value.trim();
+    const email = fields.email.value.trim();
+    const message = fields.message.value.trim();
+
+    let isValid = true;
+
+    // Name: must not be empty
+    if (name === '') {
+      showError('name', 'Please enter your name.');
+      isValid = false;
+    } else {
+      clearError('name');
+    }
+
+    // Email: must not be empty and must look like an email
+    if (email === '') {
+      showError('email', 'Please enter your email.');
+      isValid = false;
+    } else if (!emailPattern.test(email)) {
+      showError('email', 'Please enter a valid email, like name@example.com.');
+      isValid = false;
+    } else {
+      clearError('email');
+    }
+
+    // Message: at least 10 characters
+    if (message.length < 10) {
+      showError('message', 'Your message should be at least 10 characters.');
+      isValid = false;
+    } else {
+      clearError('message');
+    }
+
+    if (!isValid) {
+      showStatus('Please fix the highlighted fields and try again.', 'fail');
+      return;
+    }
+
+    // All good: confirm and reset the form
+    showStatus(`Thank you, ${name}! Your message has been sent.`, 'success');
+    form.reset();
+  });
+
+  // Remove a field's error as soon as the user starts fixing it
+  Object.keys(fields).forEach((key) => {
+    fields[key].addEventListener('input', () => clearError(key));
+  });
+
+  function showError(key, text) {
+    fields[key].classList.add('invalid');
+    document.getElementById(`${key}-error`).textContent = text;
+  }
+
+  function clearError(key) {
+    fields[key].classList.remove('invalid');
+    document.getElementById(`${key}-error`).textContent = '';
+  }
+
+  function showStatus(text, type) {
+    status.textContent = text;
+    status.className = type;
+  }
 }

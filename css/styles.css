@@ -248,6 +248,12 @@ textarea {
   font-size: 0.95rem;
 }
 
+/* Red border on invalid fields */
+input.invalid,
+textarea.invalid {
+  border-color: var(--error);
+}
+
 input:focus-visible,
 textarea:focus-visible {
   outline: 2px solid var(--accent);
@@ -256,6 +262,15 @@ textarea:focus-visible {
 
 textarea {
   resize: vertical;
+}
+
+/* Error text under each field */
+.error {
+  display: block;
+  color: var(--error);
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  min-height: 1em;
 }
 
 button {
@@ -277,9 +292,18 @@ button:focus-visible {
   background-color: var(--accent-dark);
 }
 
+/* Form status message (success / error) */
 #form-status {
-  color: var(--accent);
   font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+#form-status.success {
+  color: var(--success);
+}
+
+#form-status.fail {
+  color: var(--error);
 }
 
 /* =========================================================
